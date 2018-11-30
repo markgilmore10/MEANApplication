@@ -1,0 +1,84 @@
+<mat-card>
+  <form (submit)="onEditPlayer(playerForm)" #playerForm="ngForm">
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Name"
+          type="text"
+          name="name"
+          ngModel={{player.name}}
+          required
+          #name="ngModel"
+          >
+      </mat-form-field>
+
+      <mat-form-field>
+          <input
+            matInput
+            placeholder="Phone Number"
+            type="number"
+            name="phone"
+            ngModel={{player.phone}}
+            required
+            #phone="ngModel"
+            >
+        </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Date of Birth"
+      type="date"
+      name="dob"
+      ngModel={{player.dob}}
+      required
+      #dob="ngModel"
+      >
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Position"
+      type="text"
+      name="position"
+      ngModel={{player.position}}
+      required
+      #position="ngModel">
+    </mat-form-field>
+        <mat-form-field>
+            <input
+              matInput
+              placeholder="Email"
+              type="text"
+              name="email"
+              ngModel={{player.email}}
+              required
+              #email="ngModel"
+              >
+          </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Weekly Wage"
+        type="number"
+        name="wage"
+        ngModel={{player.wage}}
+        required
+        #wage="ngModel"
+        >
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Contract Expiry"
+        type="date"
+        name="contract"
+        ngModel={{player.contract}}
+        required
+        #contract="ngModel">
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit">Update Post</button>
+
