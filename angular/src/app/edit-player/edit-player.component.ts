@@ -35,14 +35,17 @@ export class EditPlayerComponent implements OnInit {
     });
   }
   onEditPlayer(form: NgForm) {
+
      // Validate Email
      if(!this.validateService.validateEmail(form.value.email)) {
-      this.flashMessage.show('Please use a valid Email Address', {cssClass: 'alert-danger'});
+      this.flashMessage.show('Please use a valid Email Address', {cssClass: 'alert-danger'}); // Alerts User if Email is not Valid
       return false;
     }
+
+    // Updates Player
     this.service.updatePlayer(this.player._id, form.value.name, form.value.phone, form.value.dob, form.value.position, form.value.email, form.value.wage, form.value.contract).subscribe(() =>
     {
-      this.flashMessage.show('Post edited Successfully', {cssClass: 'alert-success'});
+      this.flashMessage.show('Post Edited Successfully', {cssClass: 'alert-success'}); // Alerts User if Player is Edited Successfully
       this.router.navigate(['/list']);
     });
   }

@@ -25,7 +25,7 @@ export class PlayerListComponent implements OnInit {
 
    onDelete(id:String){
      console.log("Delete called "+ id);
-     this.flashMessage.show('Player Removed Successfully', {cssClass: 'alert-success'});
+     this.flashMessage.show('Player Removed Successfully', {cssClass: 'alert-success'}); // Alerts User if Player is Removed Successfully
      this.ps.deletePlayer(id).subscribe(() =>
      {
         this.ngOnInit();

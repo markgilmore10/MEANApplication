@@ -17,14 +17,16 @@ export class AddPalyerComponent implements OnInit {
 
     // Validate Email
     if(!this.validateService.validateEmail(form.value.email)) {
-     this.flashMessage.show('Please use a valid Email Address', {cssClass: 'alert-danger'});
+     this.flashMessage.show('Please use a valid Email Address', {cssClass: 'alert-danger'}); // Alerts User if Email is not Valid
      return false;
    }
+   
+   // Adding Player to Database
    this.service.addPlayer(form.value.name, form.value.phone, form.value.dob, form.value.position, form.value.email, form.value.wage, form.value.contract).subscribe();
   
    console.log(form.value);
    form.resetForm();
-   this.flashMessage.show('Player registered successfully', {cssClass: 'alert-success'});
+   this.flashMessage.show('Player Registered Successfully', {cssClass: 'alert-success'}); // Alerts User if Player is Registered Successfully
  }
 
   ngOnInit() {

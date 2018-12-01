@@ -1,6 +1,7 @@
 <mat-toolbar>Player Database</mat-toolbar>
 <mat-accordion multi="true" *ngIf="players.length > 0">
   <mat-expansion-panel [expanded]="false" *ngFor="let player of players">
+    
     <mat-expansion-panel-header>
         <p mat-line class="demo-2"><b>Name:</b> {{ player.name }} </p>
     </mat-expansion-panel-header>

@@ -3,11 +3,15 @@ var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
 
+// Declare and Connect to Database
 var mongoose = require('mongoose');
 var mongoDB = 'mongodb://admin1:admin1@ds155823.mlab.com:55823/meanapp';
 mongoose.connect(mongoDB);
 
+// Declare Schema
 var Schema = mongoose.Schema;
+
+// Outline Schema
 var playerSchema = new Schema({
     name: String,
     phone: Number,
@@ -17,9 +21,10 @@ var playerSchema = new Schema({
     wage: Number,
     contract: Date
 })
+
 var PostModel = mongoose.model('player', playerSchema);
 
-//Here we are configuring express to use body-parser as middle-ware. 
+// Configuring Express to use Body-Parser as Middle-Ware. 
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json());
 
@@ -32,9 +37,9 @@ app.use(function(req, res, next) {
     });
     
 app.post('/name', function(req, res){
-    res.send("Hello you sent " +
-    req.body.firstname + " " +
-    req.body.lastname);
+   res.send("Hello you sent " +
+   req.body.firstname + " " +
+   req.body.lastname);
 })
 
 app.get('/', function (req, res) {
@@ -42,7 +47,7 @@ app.get('/', function (req, res) {
 })
 
 app.post('/api/players', function(req, res){
-    console.log("post successful");
+    console.log("Registration Successful");
     console.log(req.body.name);
     console.log(req.body.phone);
     console.log(req.body.dob);
@@ -61,8 +66,6 @@ app.post('/api/players', function(req, res){
         contract: req.body.contract
     });
     res.send('Item added');
-
-
 })
 
 app.get('/api/players', function(req, res){
@@ -108,7 +111,7 @@ app.delete('/api/players/:id', function(req, res){
     })
 })
 
-
+// Server listening on port 8081
 var server = app.listen(8081, function () {
    var host = server.address().address
    var port = server.address().port
